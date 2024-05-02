@@ -1,0 +1,42 @@
+
+import data from '../fixtures/logincreds.json'
+
+import data2 from "../fixtures/addemployee.json"
+
+describe("understand fixtures ", () => {
+
+
+    it("test 1", () => {
+
+
+        cy.visit('/web/index.php/auth/login')
+
+        cy.get('input[name="username"]').type(data.username)
+
+        cy.get('input[name="password"]').type(data.password)
+
+        cy.get('button[type="submit"]').click()
+
+        //assertions
+
+        cy.contains("PIM").should("be.visible")
+
+        cy.url().should("eq", 'https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index')
+
+        //or 
+
+        cy.url().should("include", 'index.php/dashboard/index')
+
+        cy.contains("PIM").click()
+
+        cy.contains("Add Employee").click()
+
+        cy.get('input[name="firstName"]').type(data2.firstname)
+        cy.get('input[name="lastName"]').type(data2.lastname)
+
+        cy.get('button[type="submit"]').click()
+        cy.contains('Successfully Saved').should('be.visible')
+
+    })
+
+})
