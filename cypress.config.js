@@ -20,7 +20,7 @@ module.exports = defineConfig({
       openMode:1,
       runMode:1
     },
-    //defaultCommandTimeout: 20000,
+    defaultCommandTimeout: 20000,
     pageLoadTimeout: 120000,
     watchForFileChanges: false,
     env:{
@@ -31,7 +31,7 @@ module.exports = defineConfig({
        "cookievalue": "orangehrm=836e02e30fd06f789da66e0a2fbf05da"
 
     },
-    video:true,
+    video:false,
     experimentalSessionAndOrigin:true,
   
     setupNodeEvents(on, config) {
